@@ -5,8 +5,7 @@ public class Car extends Vehicle
 	
 	public Car()
 	{
-		myEngine = new Engine();
-		this(Engine e);
+		this(new Engine());
 	}
 	
 	public Car(Engine e)

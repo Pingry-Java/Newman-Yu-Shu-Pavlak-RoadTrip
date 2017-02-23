@@ -17,7 +17,7 @@ public class Vehicle
 	private Passenger[] passengersArr;
 	private double odometer;
 	private double forwardProgress;
-	private Engine engine = new Engine();
+	private Engine engine;
 	private double speed;
 	private double weight;
 	private boolean stranded = false;
@@ -37,7 +37,7 @@ public class Vehicle
 	
 	public Vehicle()
 	{
-		this(engine);
+		this(new Engine());
 	}
 	
 	public Vehicle(Engine e)

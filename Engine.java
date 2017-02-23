@@ -5,7 +5,7 @@ public class Engine
 	
 	public Engine()
 	{
-		this(6, 350);
+		this(6, 600);
 	}
 	
 	public Engine(int cyl, double weight)
