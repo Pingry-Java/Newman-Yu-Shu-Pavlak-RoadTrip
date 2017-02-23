@@ -74,7 +74,7 @@ public class Vehicle
 	
 	private double distanceToNextStop()
 	{
-		return ((forwardProgress/200) - (int)(forwardProgress/200)) * 200;
+		return 200 - forwardProgress%200;
 	}
 	
 	public double getSpeed()
@@ -89,14 +89,14 @@ public class Vehicle
 	
 	public void drive()
 	{
-		fuel -= engine.fuelRequired(this.distanceToNextStop(), this.totalWeight(), this.getSpeed());
+		this.fuel = this.fuel - engine.fuelRequired(this.distanceToNextStop(), this.totalWeight(), this.getSpeed());
 		milesToDestination -= this.distanceToNextStop();
 		forwardProgress += this.distanceToNextStop();
 	}
 	
 	public void drive(double minDistance)
 	{
-		fuel -= engine.fuelRequired(minDistance, this.totalWeight(), this.getSpeed());
+		this.fuel = fuel - engine.fuelRequired(minDistance, this.totalWeight(), this.getSpeed());
 		milesToDestination -= minDistance;
 		forwardProgress += minDistance;
 	}

@@ -99,23 +99,33 @@ public class RoadTrip
 		Passenger ps2 = new Passenger("Passenger 2");
 		Passenger ps3 = new Passenger("Passenger 3");
 		Passenger player = new Passenger("Player");
-	
+		double distance;
+		double speed;
 		while (!user.isStranded())
 		{
 			gasStop(user, myPassengers, foods);
 			System.out.println("Is there a set distance you'd like to drive? y/n");
 			input = keyboard.nextLine();
+	
 			while (input.equals("y"))
 			{
 				System.out.println("How far would you like to drive?");
-				double distance = (double) keyboard.nextInt();
+				distance =  keyboard.nextDouble();
 				keyboard.nextLine();
+				System.out.println("How fast would you like to drive?");
+				speed =  keyboard.nextDouble();
+				keyboard.nextLine();
+				user.setSpeed(speed);
 				user.drive(distance);
 				user.ifStranded();
 				user.ifWin();
 				System.out.println("'y' to drive a specific distance again. 'n' to drive to the next stop.");
 				input = keyboard.nextLine();
 			}
+			System.out.println("How fast would you like to drive?");
+			speed =  keyboard.nextDouble();
+			keyboard.nextLine();
+			user.setSpeed(speed);
 			user.drive();
 			user.ifStranded();
 			user.ifWin();
